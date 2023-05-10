@@ -6,7 +6,8 @@
   "scripts": {
     "ts-node": "ts-node",
     "tsc": "tsc",
-    "clean:tsc": "rm tsconfig.tsbuildinfo"
+    "clean:tsc": "rm tsconfig.tsbuildinfo",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
