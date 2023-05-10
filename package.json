@@ -4,7 +4,8 @@
   "description": "Admin platform for videos",
   "main": "index.js",
   "scripts": {
-    "ts-node": "ts-node"
+    "ts-node": "ts-node",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
