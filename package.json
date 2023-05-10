@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ts-node": "ts-node",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "clean:tsc": "rm tsconfig.tsbuildinfo"
   },
   "keywords": [],
   "author": "",
