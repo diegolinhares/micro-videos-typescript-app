@@ -21,7 +21,7 @@ export class Category {
   }
 
   private set description(value: string) {
-    this.props.description = this.props.description ?? null
+    this.props.description = value ?? null
   }
 
   get is_active() {
@@ -29,7 +29,7 @@ export class Category {
   }
 
   private set is_active(value: boolean) {
-    this.props.is_active = this.props.is_active ?? true
+    this.props.is_active = value ?? true
   }
 
   get created_at() {
