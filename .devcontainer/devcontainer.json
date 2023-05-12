@@ -2,6 +2,7 @@
 	"name": "Micro Videos Typescript",
 	"dockerComposeFile": [
 		"../docker-compose.yaml",
+		"../docker-compose.override.yaml",
 		"docker-compose.yml"
 	],
 	"service": "app",
@@ -9,7 +10,7 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash"
+				"terminal.integrated.defaultProfile.linux": "zsh"
 			}
 		}
 	}
