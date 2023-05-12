@@ -1,4 +1,7 @@
-FROM node:14.15.4-slim
+FROM node:18.16.0-slim
+
+RUN apt update && apt install -y --no-install-recommends \
+    git
 
 USER node
 

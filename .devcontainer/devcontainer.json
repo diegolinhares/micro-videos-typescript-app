@@ -1,11 +1,11 @@
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "Micro Videos Typescript",
 	"dockerComposeFile": [
 		"../docker-compose.yaml",
 		"docker-compose.yml"
 	],
 	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"workspaceFolder": "/home/node/app",
 	"customizations": {
 		"vscode": {
 			"settings": {
