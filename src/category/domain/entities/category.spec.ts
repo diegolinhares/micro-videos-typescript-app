@@ -60,6 +60,12 @@ describe("Category Tests", () => {
     expect(category.name).toBe("Movie")
   })
 
+  test("setter of name field", () => {
+    const category = new Category({name: "Movie"})
+    category["name"] = "other name"
+    expect(category.name).toBe("other name")
+  })
+
   test("getter and setter of description field", () => {
     let category = new Category({name: "Movie"})
     expect(category.description).toBeNull()
@@ -119,7 +125,26 @@ describe("Category Tests", () => {
     data.forEach(category_data => {
       let category = new Category(category_data.props, category_data.id as any)
       expect(category.id).not.toBeNull()
-      expect(category.id).toBeInstanceOf(UniqueEntityId)
+      expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityId)
     })
+  })
+
+  it("should update a category", () => {
+    const category = new Category({name: "Movie"})
+    category.update("Documentary", "some description")
+    expect(category.name).toBe("Documentary")
+    expect(category.description).toBe("some description")
+  })
+
+  it("should activate a category", () => {
+    const category = new Category({name: "Movie", is_active: false})
+    category.activate()
+    expect(category.is_active).toBeTruthy()
+  })
+
+  it("should deactivate a category", () => {
+    const category = new Category({name: "Movie", is_active: true})
+    category.deactivate()
+    expect(category.is_active).toBeFalsy()
   })
 })
