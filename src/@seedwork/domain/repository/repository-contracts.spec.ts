@@ -1,4 +1,4 @@
-import { SearchParams } from "./repository-contracts"
+import { SearchParams, SearchResult } from "./repository-contracts"
 
 describe("SearchParams Unit Tests", () => {
   test("page prop", () => {
@@ -124,6 +124,98 @@ describe("SearchParams Unit Tests", () => {
 
     arrange.forEach(item => {
       expect(new SearchParams({filter: item.filter as any}).filter).toBe(item.expected)
+    })
+  })
+})
+
+describe("SearchResult Unit Tests", () => {
+  test("constructor props", () => {
+    let result = new SearchResult({
+      items: ["entity1", "entity2"] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 2,
+      sort: null,
+      sort_dir: null,
+      filter: null
+    })
+
+    expect(result.toJSON()).toStrictEqual({
+      items: ["entity1", "entity2"] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 2,
+      last_page: 2,
+      sort: null,
+      sort_dir: null,
+      filter: null
+    })
+
+    result = new SearchResult({
+      items: ["entity1", "entity2"] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 2,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
+    })
+
+    expect(result.toJSON()).toStrictEqual({
+      items: ["entity1", "entity2"] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 2,
+      last_page: 2,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
+    })
+  })
+
+  it("should set last_page = 1 when per_page field is greater than total field", () => {
+    let result = new SearchResult({
+      items: [] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 15,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
+    })
+
+    expect(result.toJSON()).toStrictEqual({
+      items: [] as any,
+      total: 4,
+      current_page: 1,
+      per_page: 15,
+      last_page: 1,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
+    })
+  })
+
+  test("last_page prop when total is not a multiple of per_page", () => {
+    let result = new SearchResult({
+      items: [] as any,
+      total: 101,
+      current_page: 1,
+      per_page: 20,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
+    })
+
+    expect(result.toJSON()).toStrictEqual({
+      items: [] as any,
+      total: 101,
+      current_page: 1,
+      per_page: 20,
+      last_page: 6,
+      sort: "name",
+      sort_dir: "asc",
+      filter: "test"
     })
   })
 })
