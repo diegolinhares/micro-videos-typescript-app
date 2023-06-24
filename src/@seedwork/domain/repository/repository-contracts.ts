@@ -63,7 +63,7 @@ export class SearchParams {
     this._per_page = _per_page
   }
 
-  get sort() {
+  get sort(): string | null {
     return this._sort
   }
 
@@ -71,7 +71,7 @@ export class SearchParams {
     this._sort = value === null || value === undefined || value === "" ? null : `${value}`
   }
 
-  get sort_dir() {
+  get sort_dir(): SortDirection | null {
     return this._sort_dir
   }
 
@@ -86,7 +86,7 @@ export class SearchParams {
     this._sort_dir = dir !== "asc" && dir !== "desc" ? "asc" : dir
   }
 
-  get filter() {
+  get filter(): string | null {
     return this._filter
   }
 
@@ -146,14 +146,6 @@ export interface SearchableRepositoryInterface<
   SearchInput = SearchParams,
   SearchOutput = SearchResult<E, Filter>,
 > extends RepositoryInterface<E> {
+  sortableFields: string[]
   search(props: SearchInput): Promise<SearchOutput>
-}
-
-export abstract class InMemorySearchableRepository<E extends Entity>
-  extends InMemoryRepository<E>
-  implements SearchableRepositoryInterface<E, any, any> {
-
-  search(props: any): Promise<any> {
-    throw new Error("Method not implemented.")
-  }
 }
