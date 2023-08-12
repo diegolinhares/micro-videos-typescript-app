@@ -1,5 +1,5 @@
-import { Category } from "category/domain/entities/category"
-import CategoryRepository from "category/domain/repository/category.repository"
+import { Category } from "../../domain/entities/category"
+import CategoryRepository from "../../domain/repository/category.repository"
 
 export default class CreateCategoryUseCase {
   constructor(private categoryRepo: CategoryRepository.Repository) {
