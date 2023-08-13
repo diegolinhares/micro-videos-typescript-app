@@ -3,6 +3,7 @@
     "incremental": true,
     "target": "es2017",
     "module": "commonjs",
+    "moduleResolution": "node",
     "baseUrl": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
