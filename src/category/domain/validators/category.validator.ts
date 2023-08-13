@@ -1,4 +1,4 @@
-import ClassValidatorFields from "../../../@seedwork/domain/validators/class-validator-fields"
+import ClassValidatorFields from "#seedwork/domain/validators/class-validator-fields"
 import { CategoryProperties } from "../entities/category"
 import { IsBoolean, IsNotEmpty, IsOptional, IsString, IsDate, MaxLength } from "class-validator"
 

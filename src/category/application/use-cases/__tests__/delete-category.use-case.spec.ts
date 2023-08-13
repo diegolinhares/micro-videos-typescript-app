@@ -1,4 +1,4 @@
-import NotFoundError from "../../../../@seedwork/domain/errors/not-found.error"
+import NotFoundError from "../#seedwork/domain/errors/not-found.error"
 import CategoryInMemoryRepository from "../../../infra/repository/category-in-memory.repository"
 import DeleteCategoryUseCase from "../delete-category.use-case"
 import { Category } from "../../../../category/domain/entities/category"
