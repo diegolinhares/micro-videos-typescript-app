@@ -7,6 +7,8 @@ RUN apt update && apt install -y --no-install-recommends \
     wget \
     fonts-powerline
 
+RUN npm install -g @nestjs/cli@10.1.3
+
 USER node
 
 WORKDIR /home/node/app
