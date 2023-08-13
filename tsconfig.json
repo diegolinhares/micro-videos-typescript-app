@@ -9,7 +9,17 @@
     "strict": true,
     "strictNullChecks": false,
     "skipLibCheck": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "#seedwork/*": [
+          "./@seedwork/*"
+      ],
+      "#category/*": [
+          "./category/*"
+      ]
+    },
+    "outDir": "./dist",
+    "declaration": true
   },
   "include": [
     "src/"

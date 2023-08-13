@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Admin platform for videos",
   "main": "index.js",
+  "imports": {
+    "#seedwork/*": "./dist/#seedwork/*.js",
+    "#category/*": "./dist/#category/*.js"
+  },
   "scripts": {
     "ts-node": "ts-node",
     "tsc": "tsc",
