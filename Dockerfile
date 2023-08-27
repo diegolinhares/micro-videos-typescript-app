@@ -5,7 +5,8 @@ RUN apt update && apt install -y --no-install-recommends \
     zsh \
     curl \
     wget \
-    fonts-powerline
+    fonts-powerline \
+    procps
 
 RUN npm install -g @nestjs/cli@10.1.3
 
